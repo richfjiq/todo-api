@@ -1,0 +1,42 @@
+{
+	"name": "todo-api",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "richfjiq",
+	"license": "MIT",
+	"scripts": {
+		"clean": "rimraf dist/",
+		"build": "yarn clean && tsc",
+		"start": "node dist/index.ts",
+		"ts.check": "tsc --project tsconfig.json",
+		"add-build": "git add dist",
+		"dev": "yarn clean && tsc --watch & nodemon dist/",
+		"lint": "eslint --ext .ts src/ --max-warnings 0",
+		"prepare": "husky install"
+	},
+	"lint-staged": {
+		"src/**/*": [
+			"yarn run lint",
+			"prettier --write"
+		]
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^6.4.0",
+		"eslint": "^8.0.1",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-config-standard-with-typescript": "^43.0.1",
+		"eslint-plugin-import": "^2.25.2",
+		"eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+		"eslint-plugin-prettier": "^5.1.3",
+		"eslint-plugin-promise": "^6.0.0",
+		"husky": "^8.0.0",
+		"lint-staged": "^15.2.2",
+		"prettier": "^3.2.5",
+		"typescript": "*"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.18.3",
+		"mongoose": "^8.2.0"
+	}
+}
