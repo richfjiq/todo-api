@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
+import todoRoutes from '../routes/todos';
+
 dotenv.config();
 
 class Server {
@@ -31,7 +33,7 @@ class Server {
 	}
 
 	routes(): void {
-		this.app.use(this.apiPaths.todos, () => {});
+		this.app.use(this.apiPaths.todos, todoRoutes);
 	}
 }
 
