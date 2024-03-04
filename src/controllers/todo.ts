@@ -37,7 +37,7 @@ export const createTodo = async (req: Request, res: Response): Promise<void> => 
 export const getTodos = async (req: Request, res: Response): Promise<void> => {
 	try {
 		await db.connect();
-		const todos = await Todo.find().select('_id title description');
+		const todos = await Todo.find().select('_id title description complete');
 		await db.disconnect();
 		res.status(200).json(todos);
 	} catch (error) {
